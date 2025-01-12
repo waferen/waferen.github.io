@@ -1,0 +1,396 @@
+<!DOCTYPE html> <html><head>
+		<title>网络暴力语言细粒度分类模型</title>
+		<base href="..\../">
+		<meta id="root-path" root-path="..\../">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=1.0, maximum-scale=5.0">
+		<meta charset="UTF-8">
+		<meta name="description" content="note - 网络暴力语言细粒度分类模型">
+		<meta property="og:title" content="网络暴力语言细粒度分类模型">
+		<meta property="og:description" content="note - 网络暴力语言细粒度分类模型">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="project/challenge-cup-网络暴力治理/网络暴力语言细粒度分类模型.html">
+		<meta property="og:image" content="lib\media\pasted-image-20240616181800.png">
+		<meta property="og:site_name" content="note">
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="lib/rss.xml"><script async="" id="webpage-script" src="lib/scripts/webpage.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script type="module" async="" id="graph-view-script" src="lib/scripts/graph-view.js"></script><script async="" id="graph-wasm-script" src="lib/scripts/graph-wasm.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="graph-render-worker-script" src="lib/scripts/graph-render-worker.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="tinycolor-script" src="lib/scripts/tinycolor.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="pixi-script" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.4.0/pixi.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><script async="" id="minisearch-script" src="https://cdn.jsdelivr.net/npm/minisearch@6.3.0/dist/umd/index.min.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><link rel="icon" href="lib/media/favicon.png"><script async="" id="graph-data-script" src="lib/scripts/graph-data.js" onload="this.onload=null;this.setAttribute(&quot;loaded&quot;, &quot;true&quot;)"></script><style>body{--line-width:40em;--line-width-adaptive:40em;--file-line-width:40em;--sidebar-width:min(20em, 80vw);--collapse-arrow-size:11px;--tree-horizontal-spacing:0.6em;--tree-vertical-spacing:0.6em;--sidebar-margin:12px}.sidebar{height:100%;min-width:calc(var(--sidebar-width) + var(--divider-width-hover));max-width:calc(var(--sidebar-width) + var(--divider-width-hover));font-size:14px;z-index:10;position:relative;overflow:hidden;transition:min-width ease-in-out,max-width ease-in-out;transition-duration:.2s;contain:size}.sidebar-left{left:0}.sidebar-right{right:0}.sidebar.is-collapsed{min-width:0;max-width:0}body.floating-sidebars .sidebar{position:absolute}.sidebar-content{height:100%;min-width:calc(var(--sidebar-width) - var(--divider-width-hover));top:0;padding:var(--sidebar-margin);padding-top:4em;line-height:var(--line-height-tight);background-color:var(--background-secondary);transition:background-color,border-right,border-left,box-shadow;transition-duration:var(--color-fade-speed);transition-timing-function:ease-in-out;position:absolute;display:flex;flex-direction:column}.sidebar:not(.is-collapsed) .sidebar-content{min-width:calc(max(100%,var(--sidebar-width)) - 3px);max-width:calc(max(100%,var(--sidebar-width)) - 3px)}.sidebar-left .sidebar-content{left:0;border-top-right-radius:var(--radius-l);border-bottom-right-radius:var(--radius-l)}.sidebar-right .sidebar-content{right:0;border-top-left-radius:var(--radius-l);border-bottom-left-radius:var(--radius-l)}.sidebar:has(.sidebar-content:empty):has(.topbar-content:empty){display:none}.sidebar-topbar{height:2em;width:var(--sidebar-width);top:var(--sidebar-margin);padding-inline:var(--sidebar-margin);z-index:1;position:fixed;display:flex;align-items:center;transition:width ease-in-out;transition-duration:inherit}.sidebar.is-collapsed .sidebar-topbar{width:calc(2.3em + var(--sidebar-margin) * 2)}.sidebar .sidebar-topbar.is-collapsed{width:0}.sidebar-left .sidebar-topbar{left:0}.sidebar-right .sidebar-topbar{right:0}.topbar-content{overflow:hidden;overflow:clip;width:100%;height:100%;display:flex;align-items:center;transition:inherit}.sidebar.is-collapsed .topbar-content{width:0;transition:inherit}.clickable-icon.sidebar-collapse-icon{background-color:transparent;color:var(--icon-color-focused);padding:0!important;margin:0!important;height:100%!important;width:2.3em!important;margin-inline:0.14em!important;position:absolute}.sidebar-left .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);right:var(--sidebar-margin)}.sidebar-right .clickable-icon.sidebar-collapse-icon{transform:rotateY(180deg);left:var(--sidebar-margin)}.clickable-icon.sidebar-collapse-icon svg.svg-icon{width:100%;height:100%}.sidebar-section-header{margin:0 0 1em 0;text-transform:uppercase;letter-spacing:.06em;font-weight:600}body{transition:background-color var(--color-fade-speed) ease-in-out}.webpage-container{display:flex;flex-direction:row;height:100%;width:100%;align-items:stretch;justify-content:center}.document-container{opacity:1;flex-basis:100%;max-width:100%;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;transition:opacity .2s ease-in-out;contain:inline-size}.hide{opacity:0;transition:opacity .2s ease-in-out}.document-container>.markdown-preview-view{margin:var(--sidebar-margin);margin-bottom:0;width:100%;width:-webkit-fill-available;width:-moz-available;width:fill-available;background-color:var(--background-primary);transition:background-color var(--color-fade-speed) ease-in-out;border-top-right-radius:var(--window-radius,var(--radius-m));border-top-left-radius:var(--window-radius,var(--radius-m));overflow-x:hidden!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;contain:inline-size}.document-container>.markdown-preview-view>.markdown-preview-sizer{padding-bottom:80vh!important;width:100%!important;max-width:var(--line-width)!important;flex-basis:var(--line-width)!important;transition:background-color var(--color-fade-speed) ease-in-out;contain:inline-size}.markdown-rendered img:not([width]),.view-content img:not([width]){max-width:100%;outline:0}.document-container>.view-content.embed{display:flex;padding:1em;height:100%;width:100%;align-items:center;justify-content:center}.document-container>.view-content.embed>*{max-width:100%;max-height:100%;object-fit:contain}:has(> :is(.math,table)){overflow-x:auto!important}.document-container>.view-content{overflow-x:auto;contain:content;padding:0;margin:0;height:100%}.scroll-highlight{position:absolute;width:100%;height:100%;pointer-events:none;z-index:1000;background-color:hsla(var(--color-accent-hsl),.25);opacity:0;padding:1em;inset:50%;translate:-50% -50%;border-radius:var(--radius-s)}</style><script defer="">async function loadIncludes(){if("file:"!=location.protocol){let e=document.querySelectorAll("include");for(let t=0;t<e.length;t++){let o=e[t],l=o.getAttribute("src");try{const e=await fetch(l);if(!e.ok){console.log("Could not include file: "+l),o?.remove();continue}let t=await e.text(),n=document.createRange().createContextualFragment(t),i=Array.from(n.children);for(let e of i)e.classList.add("hide"),e.style.transition="opacity 0.5s ease-in-out",setTimeout((()=>{e.classList.remove("hide")}),10);o.before(n),o.remove(),console.log("Included file: "+l)}catch(e){o?.remove(),console.log("Could not include file: "+l,e);continue}}}else{if(document.querySelectorAll("include").length>0){var e=document.createElement("div");e.id="error",e.textContent="Web server exports must be hosted on an http / web server to be viewed correctly.",e.style.position="fixed",e.style.top="50%",e.style.left="50%",e.style.transform="translate(-50%, -50%)",e.style.fontSize="1.5em",e.style.fontWeight="bold",e.style.textAlign="center",document.body.appendChild(e),document.querySelector(".document-container")?.classList.remove("hide")}}}document.addEventListener("DOMContentLoaded",(()=>{loadIncludes()}));let isFileProtocol="file:"==location.protocol;function waitLoadScripts(e,t){let o=e.map((e=>document.getElementById(e+"-script"))),l=0;!function e(){let n=o[l];l++,n&&"true"!=n.getAttribute("loaded")||l<o.length&&e(),l<o.length?n.addEventListener("load",e):t()}()}</script><link rel="stylesheet" href="lib/styles/obsidian.css"><link rel="stylesheet" href="lib/styles/theme.css"><link rel="preload" href="lib/styles/global-variable-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/global-variable-styles.css"></noscript><link rel="preload" href="lib/styles/main-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="lib/styles/main-styles.css"></noscript></head><body class="publish css-settings-manager theme-dark show-inline-title show-ribbon"><script defer="">let theme=localStorage.getItem("theme")||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");"dark"==theme?(document.body.classList.add("theme-dark"),document.body.classList.remove("theme-light")):(document.body.classList.add("theme-light"),document.body.classList.remove("theme-dark")),window.innerWidth<480?document.body.classList.add("is-phone"):window.innerWidth<768?document.body.classList.add("is-tablet"):window.innerWidth<1024?document.body.classList.add("is-small-screen"):document.body.classList.add("is-large-screen")</script><div class="webpage-container workspace"><div class="sidebar-left sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"><label class="theme-toggle-container" for="theme_toggle"><input class="theme-toggle-input" type="checkbox" id="theme_toggle"><div class="toggle-background"></div></label></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="search-input-container"><input enterkeyhint="search" type="search" spellcheck="false" placeholder="Search..."><div class="search-input-clear-button" aria-label="Clear search"></div></div><include src="lib/html/file-tree.html"></include></div><script defer="">let ls = document.querySelector(".sidebar-left"); ls.classList.add("is-collapsed"); if (window.innerWidth > 768) ls.classList.remove("is-collapsed"); ls.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-left-width"));</script></div><div class="document-container markdown-reading-view hide"><div class="markdown-preview-view markdown-rendered allow-fold-headings allow-fold-lists is-readable-line-width"><style id="MJX-CHTML-styles">mjx-c.mjx-c1D446.TEX-I::before { padding: 0.705em 0.645em 0.022em 0px; content: "S"; }
+mjx-c.mjx-c7B::before { padding: 0.75em 0.5em 0.25em 0px; content: "{"; }
+mjx-c.mjx-c2C::before { padding: 0.121em 0.278em 0.194em 0px; content: ","; }
+mjx-c.mjx-c7D::before { padding: 0.75em 0.5em 0.25em 0px; content: "}"; }
+mjx-c.mjx-c2208::before { padding: 0.54em 0.667em 0.04em 0px; content: "∈"; }
+mjx-c.mjx-c211D.TEX-A::before { padding: 0.683em 0.722em 0px 0px; content: "R"; }
+mjx-c.mjx-c1D451.TEX-I::before { padding: 0.694em 0.52em 0.01em 0px; content: "d"; }
+mjx-c.mjx-c1D436.TEX-I::before { padding: 0.705em 0.76em 0.022em 0px; content: "C"; }
+mjx-c.mjx-c1D450.TEX-I::before { padding: 0.442em 0.433em 0.011em 0px; content: "c"; }
+mjx-c.mjx-c35::before { padding: 0.666em 0.5em 0.022em 0px; content: "5"; }
+mjx-c.mjx-c1D461.TEX-I::before { padding: 0.626em 0.361em 0.011em 0px; content: "t"; }
+mjx-c.mjx-c2032::before { padding: 0.56em 0.275em 0px 0px; content: "′"; }
+mjx-c.mjx-c1D706.TEX-I::before { padding: 0.694em 0.583em 0.012em 0px; content: "λ"; }
+mjx-c.mjx-c5B::before { padding: 0.75em 0.278em 0.25em 0px; content: "["; }
+mjx-c.mjx-c5D::before { padding: 0.75em 0.278em 0.25em 0px; content: "]"; }
+mjx-texatom { display: inline-block; text-align: left; }
+mjx-msub { display: inline-block; text-align: left; }
+mjx-msup { display: inline-block; text-align: left; }
+mjx-msubsup { display: inline-block; text-align: left; }
+mjx-script { display: inline-block; padding-right: 0.05em; padding-left: 0.033em; }
+mjx-script > mjx-spacer { display: block; }
+mjx-c.mjx-c2F::before { padding: 0.75em 0.5em 0.25em 0px; content: "/"; }
+mjx-c.mjx-c2211.TEX-S1::before { padding: 0.75em 1.056em 0.25em 0px; content: "∑"; }
+mjx-c.mjx-c28::before { padding: 0.75em 0.389em 0.25em 0px; content: "("; }
+mjx-c.mjx-c1D466.TEX-I::before { padding: 0.442em 0.49em 0.205em 0px; content: "y"; }
+mjx-c.mjx-c1D456.TEX-I::before { padding: 0.661em 0.345em 0.011em 0px; content: "i"; }
+mjx-c.mjx-c1D703.TEX-I::before { padding: 0.705em 0.469em 0.01em 0px; content: "θ"; }
+mjx-c.mjx-c1D447.TEX-I::before { padding: 0.677em 0.704em 0px 0px; content: "T"; }
+mjx-c.mjx-c29::before { padding: 0.75em 0.389em 0.25em 0px; content: ")"; }
+mjx-c.mjx-c1D6FC.TEX-I::before { padding: 0.442em 0.64em 0.011em 0px; content: "α"; }
+mjx-c.mjx-c1D457.TEX-I::before { padding: 0.661em 0.412em 0.204em 0px; content: "j"; }
+mjx-c.mjx-c1D44A.TEX-I::before { padding: 0.683em 1.048em 0.022em 0px; content: "W"; }
+mjx-c.mjx-c1D44C.TEX-I::before { padding: 0.683em 0.763em 0px 0px; content: "Y"; }
+mjx-c.mjx-c1D44B.TEX-I::before { padding: 0.683em 0.852em 0px 0px; content: "X"; }
+mjx-c.mjx-c1D437.TEX-I::before { padding: 0.683em 0.828em 0px 0px; content: "D"; }
+mjx-c.mjx-c1D45A.TEX-I::before { padding: 0.442em 0.878em 0.011em 0px; content: "m"; }
+mjx-c.mjx-c1D43F.TEX-I::before { padding: 0.683em 0.681em 0px 0px; content: "L"; }
+mjx-container[jax="CHTML"] { line-height: 0; }
+mjx-container [space="1"] { margin-left: 0.111em; }
+mjx-container [space="2"] { margin-left: 0.167em; }
+mjx-container [space="3"] { margin-left: 0.222em; }
+mjx-container [space="4"] { margin-left: 0.278em; }
+mjx-container [space="5"] { margin-left: 0.333em; }
+mjx-container [rspace="1"] { margin-right: 0.111em; }
+mjx-container [rspace="2"] { margin-right: 0.167em; }
+mjx-container [rspace="3"] { margin-right: 0.222em; }
+mjx-container [rspace="4"] { margin-right: 0.278em; }
+mjx-container [rspace="5"] { margin-right: 0.333em; }
+mjx-container [size="s"] { font-size: 70.7%; }
+mjx-container [size="ss"] { font-size: 50%; }
+mjx-container [size="Tn"] { font-size: 60%; }
+mjx-container [size="sm"] { font-size: 85%; }
+mjx-container [size="lg"] { font-size: 120%; }
+mjx-container [size="Lg"] { font-size: 144%; }
+mjx-container [size="LG"] { font-size: 173%; }
+mjx-container [size="hg"] { font-size: 207%; }
+mjx-container [size="HG"] { font-size: 249%; }
+mjx-container [width="full"] { width: 100%; }
+mjx-box { display: inline-block; }
+mjx-block { display: block; }
+mjx-itable { display: inline-table; }
+mjx-row { display: table-row; }
+mjx-row > * { display: table-cell; }
+mjx-mtext { display: inline-block; }
+mjx-mstyle { display: inline-block; }
+mjx-merror { display: inline-block; color: red; background-color: yellow; }
+mjx-mphantom { visibility: hidden; }
+mjx-assistive-mml { top: 0px; left: 0px; clip: rect(1px, 1px, 1px, 1px); user-select: none; position: absolute !important; padding: 1px 0px 0px !important; border: 0px !important; display: block !important; width: auto !important; overflow: hidden !important; }
+mjx-assistive-mml[display="block"] { width: 100% !important; }
+mjx-math { display: inline-block; text-align: left; line-height: 0; text-indent: 0px; font-style: normal; font-weight: normal; font-size: 100%; letter-spacing: normal; border-collapse: collapse; overflow-wrap: normal; word-spacing: normal; white-space: nowrap; direction: ltr; padding: 1px 0px; }
+mjx-container[jax="CHTML"][display="true"] { display: block; text-align: center; margin: 1em 0px; }
+mjx-container[jax="CHTML"][display="true"][width="full"] { display: flex; }
+mjx-container[jax="CHTML"][display="true"] mjx-math { padding: 0px; }
+mjx-container[jax="CHTML"][justify="left"] { text-align: left; }
+mjx-container[jax="CHTML"][justify="right"] { text-align: right; }
+mjx-mi { display: inline-block; text-align: left; }
+mjx-c { display: inline-block; }
+mjx-utext { display: inline-block; padding: 0.75em 0px 0.2em; }
+mjx-mn { display: inline-block; text-align: left; }
+mjx-mo { display: inline-block; text-align: left; }
+mjx-stretchy-h { display: inline-table; width: 100%; }
+mjx-stretchy-h > * { display: table-cell; width: 0px; }
+mjx-stretchy-h > * > mjx-c { display: inline-block; transform: scaleX(1); }
+mjx-stretchy-h > * > mjx-c::before { display: inline-block; width: initial; }
+mjx-stretchy-h > mjx-ext { overflow: clip visible; width: 100%; }
+mjx-stretchy-h > mjx-ext > mjx-c::before { transform: scaleX(500); }
+mjx-stretchy-h > mjx-ext > mjx-c { width: 0px; }
+mjx-stretchy-h > mjx-beg > mjx-c { margin-right: -0.1em; }
+mjx-stretchy-h > mjx-end > mjx-c { margin-left: -0.1em; }
+mjx-stretchy-v { display: inline-block; }
+mjx-stretchy-v > * { display: block; }
+mjx-stretchy-v > mjx-beg { height: 0px; }
+mjx-stretchy-v > mjx-end > mjx-c { display: block; }
+mjx-stretchy-v > * > mjx-c { transform: scaleY(1); transform-origin: left center; overflow: hidden; }
+mjx-stretchy-v > mjx-ext { display: block; height: 100%; box-sizing: border-box; border: 0px solid transparent; overflow: visible clip; }
+mjx-stretchy-v > mjx-ext > mjx-c::before { width: initial; box-sizing: border-box; }
+mjx-stretchy-v > mjx-ext > mjx-c { transform: scaleY(500) translateY(0.075em); overflow: visible; }
+mjx-mark { display: inline-block; height: 0px; }
+mjx-c::before { display: block; width: 0px; }
+.MJX-TEX { font-family: MJXZERO, MJXTEX; }
+.TEX-B { font-family: MJXZERO, MJXTEX-B; }
+.TEX-I { font-family: MJXZERO, MJXTEX-I; }
+.TEX-MI { font-family: MJXZERO, MJXTEX-MI; }
+.TEX-BI { font-family: MJXZERO, MJXTEX-BI; }
+.TEX-S1 { font-family: MJXZERO, MJXTEX-S1; }
+.TEX-S2 { font-family: MJXZERO, MJXTEX-S2; }
+.TEX-S3 { font-family: MJXZERO, MJXTEX-S3; }
+.TEX-S4 { font-family: MJXZERO, MJXTEX-S4; }
+.TEX-A { font-family: MJXZERO, MJXTEX-A; }
+.TEX-C { font-family: MJXZERO, MJXTEX-C; }
+.TEX-CB { font-family: MJXZERO, MJXTEX-CB; }
+.TEX-FR { font-family: MJXZERO, MJXTEX-FR; }
+.TEX-FRB { font-family: MJXZERO, MJXTEX-FRB; }
+.TEX-SS { font-family: MJXZERO, MJXTEX-SS; }
+.TEX-SSB { font-family: MJXZERO, MJXTEX-SSB; }
+.TEX-SSI { font-family: MJXZERO, MJXTEX-SSI; }
+.TEX-SC { font-family: MJXZERO, MJXTEX-SC; }
+.TEX-T { font-family: MJXZERO, MJXTEX-T; }
+.TEX-V { font-family: MJXZERO, MJXTEX-V; }
+.TEX-VB { font-family: MJXZERO, MJXTEX-VB; }
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c { font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A !important; }
+@font-face { font-family: MJXZERO; src: url("lib/fonts/mathjax_zero.woff") format("woff"); }
+@font-face { font-family: MJXTEX; src: url("lib/fonts/mathjax_main-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-B; src: url("lib/fonts/mathjax_main-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-I; src: url("lib/fonts/mathjax_math-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-MI; src: url("lib/fonts/mathjax_main-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-BI; src: url("lib/fonts/mathjax_math-bolditalic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S1; src: url("lib/fonts/mathjax_size1-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S2; src: url("lib/fonts/mathjax_size2-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S3; src: url("lib/fonts/mathjax_size3-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-S4; src: url("lib/fonts/mathjax_size4-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-A; src: url("lib/fonts/mathjax_ams-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-C; src: url("lib/fonts/mathjax_calligraphic-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-CB; src: url("lib/fonts/mathjax_calligraphic-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-FR; src: url("lib/fonts/mathjax_fraktur-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-FRB; src: url("lib/fonts/mathjax_fraktur-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SS; src: url("lib/fonts/mathjax_sansserif-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SSB; src: url("lib/fonts/mathjax_sansserif-bold.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SSI; src: url("lib/fonts/mathjax_sansserif-italic.woff") format("woff"); }
+@font-face { font-family: MJXTEX-SC; src: url("lib/fonts/mathjax_script-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-T; src: url("lib/fonts/mathjax_typewriter-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-V; src: url("lib/fonts/mathjax_vector-regular.woff") format("woff"); }
+@font-face { font-family: MJXTEX-VB; src: url("lib/fonts/mathjax_vector-bold.woff") format("woff"); }
+mjx-c.mjx-c1D464.TEX-I::before { padding: 0.443em 0.716em 0.011em 0px; content: "w"; }
+mjx-c.mjx-c31::before { padding: 0.666em 0.5em 0px 0px; content: "1"; }
+mjx-c.mjx-c1D465.TEX-I::before { padding: 0.442em 0.572em 0.011em 0px; content: "x"; }
+mjx-c.mjx-c2B::before { padding: 0.583em 0.778em 0.082em 0px; content: "+"; }
+mjx-c.mjx-c32::before { padding: 0.666em 0.5em 0px 0px; content: "2"; }
+mjx-c.mjx-c2E::before { padding: 0.12em 0.278em 0px 0px; content: "."; }
+mjx-c.mjx-c1D45B.TEX-I::before { padding: 0.442em 0.6em 0.011em 0px; content: "n"; }
+mjx-c.mjx-c2217::before { padding: 0.465em 0.5em 0px 0px; content: "∗"; }
+mjx-c.mjx-c2212::before { padding: 0.583em 0.778em 0.082em 0px; content: "−"; }
+mjx-c.mjx-c1D44F.TEX-I::before { padding: 0.694em 0.429em 0.011em 0px; content: "b"; }
+mjx-c.mjx-c3D::before { padding: 0.583em 0.778em 0.082em 0px; content: "="; }
+mjx-c.mjx-c30::before { padding: 0.666em 0.5em 0.022em 0px; content: "0"; }
+</style><div class="markdown-preview-sizer markdown-preview-section"><h1 class="page-title heading inline-title" id="网络暴力语言细粒度分类模型">网络暴力语言细粒度分类模型</h1><div class="el-p"><span style="display: block; margin-block-start: var(--p-spacing); margin-block-end: var(--p-spacing);"><span alt="网络暴力语言预测模型.docx" src="网络暴力语言预测模型.docx" class="internal-embed file-embed mod-generic is-loaded"><div class="file-embed-title"><span class="file-embed-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-file"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path></svg></span> 网络暴力语言预测模型.docx</div></span></span></div><div class="el-h2 heading-wrapper"><h2 data-heading="预测模型" dir="auto" class="heading" id="预测模型"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>预测模型</h2><div class="heading-children"><div class="el-p"><p dir="auto">本部分旨在建立一个网络暴力语言预测模型，以识别网络暴力语言并进行细粒度分类。本部分数据集采用TOXICN数据集，该数据集是由Junyu Lu, Bo Xu(2023) 提出的中文互联网的网络暴力语言细粒度分类数据集。预测模型在预训练大语言模型(PLM)如Bert基础上，通过TKE、侮辱词典等辅助手段加强语言模型对于网络暴力语言的识别能力。</p></div><div class="el-h3 heading-wrapper"><h3 data-heading="1.1 数据集" dir="auto" class="heading" id="1.1_数据集"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.1 数据集</h3><div class="heading-children"><div class="el-h4 heading-wrapper"><h4 data-heading="1.1.1 数据集建立" dir="auto" class="heading" id="1.1.1_数据集建立"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.1.1 数据集建立</h4><div class="heading-children"><div class="el-p"><p dir="auto">我们使用了TOXICN数据集，该数据集抓取的数据范围限定在几个敏感话题下，包括性别、种族、地域黑和LGBTQ，这些话题在互联网上很容易引起争论。其中列出了每个话题的一些关键词，并利用这些关键词提取出了总计15442条 没有回复的评论。删除了文本过于简短而没有实际语义的样本，比如只由词形变化和助词组成的短语。删除了包括重复的样本和不相关的广告等数据。最后，保留了12011条评论。</p></div><div class="el-p"><p dir="auto">以下是数据集的部分样本示例。</p></div><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th align="left" dir="ltr">Platform</th>
+<th align="left" dir="ltr">Topic</th>
+<th align="left" dir="ltr">Content</th>
+<th align="left" dir="ltr">Toxic</th>
+<th align="left" dir="ltr">Toxic One Hot</th>
+<th align="left" dir="ltr">Toxic Type</th>
+<th align="left" dir="ltr">Toxic Type One Hot</th>
+<th align="left" dir="ltr">Expression</th>
+<th align="left" dir="ltr">Expression One Hot</th>
+<th align="left" dir="ltr">Target</th>
+<th align="left" dir="ltr">Length</th>
+<th align="left" dir="ltr">Num Attacked</th>
+<th dir="auto"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" dir="ltr">zhihu</td>
+<td align="left" dir="ltr">region</td>
+<td align="left" dir="ltr">就凭你的北京户口我就感觉你比我高级五个阶级，我是河北人😆</td>
+<td align="left" dir="auto">0</td>
+<td align="left" dir="auto">[1, 0]</td>
+<td align="left" dir="auto">0</td>
+<td align="left" dir="auto">[1, 0, 0]</td>
+<td align="left" dir="auto">0</td>
+<td align="left" dir="auto">[1, 0, 0, 0]</td>
+<td align="left" dir="auto">[0, 0, 0, 0, 0, 1]</td>
+<td align="left" dir="auto">31</td>
+<td align="left" dir="auto">0</td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td align="left" dir="ltr">tieba</td>
+<td align="left" dir="ltr">race</td>
+<td align="left" dir="ltr">抓虫大战，人人有责</td>
+<td align="left" dir="auto">1</td>
+<td align="left" dir="auto">[0, 1]</td>
+<td align="left" dir="auto">2</td>
+<td align="left" dir="auto">[0, 0, 1]</td>
+<td align="left" dir="auto">2</td>
+<td align="left" dir="auto">[0, 0, 1, 0]</td>
+<td align="left" dir="auto">[0, 0, 0, 1, 0, 0]</td>
+<td align="left" dir="auto">9</td>
+<td align="left" dir="auto">1</td>
+<td dir="auto"></td>
+</tr>
+<tr>
+<td align="left" dir="ltr">tieba</td>
+<td align="left" dir="ltr">race</td>
+<td align="left" dir="ltr">好久都没有见过那么干净的白人班级了，一个黑乐色都没有</td>
+<td align="left" dir="auto">1</td>
+<td align="left" dir="auto">[0, 1]</td>
+<td align="left" dir="auto">2</td>
+<td align="left" dir="auto">[0, 0, 1]</td>
+<td align="left" dir="auto">1</td>
+<td align="left" dir="auto">[0, 1, 0, 0]</td>
+<td align="left" dir="auto">[0, 0, 0, 1, 0, 0]</td>
+<td align="left" dir="auto">26</td>
+<td align="left" dir="auto">1</td>
+<td dir="auto"></td>
+</tr>
+</tbody>
+</table></div><div class="el-p"><p dir="auto">其中platform指数据来源平台，topic指该评论出自什么主题的帖子，content即为文本内容，toxic即为评判是否网络暴力的二分类标注，toxic_type表示其为对言论的分类一般攻击性语言和仇恨性言论。expression表示表达方式，target表示攻击的目标群体，length表示文本内容长度，num_attacked表示攻击目标个数。<br>
+对于一般攻击性语言和仇恨性言论的区别，根据Waseem and Hovy(2016)和Fortuna and Nunes(2018)，以下是几个识别仇恨言论的标准:1)攻击特定群体，或2)煽动他人仇恨少数群体，或3)基 刻板印象和扭曲事实对少数群体制造偏见、排斥或厌恶，或4)使用讽刺或幽默来嘲笑群体，尽管发布者可能并非恶意。相比之下， 一般的攻击性语言并没有对具有特定社会属性的目标进行侮辱(David-son et al.2017)。</p></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="1.1.2 偏执处理" dir="auto" class="heading" id="1.1.2_偏执处理"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.1.2 偏执处理</h4><div class="heading-children"><div class="el-p"><p dir="auto">标注者的主观偏见会对数据集的质量产生负 面影响(Waseem和Hovy, 2016)。因此，在标 注的设计和构建过程中，mit-igate这些偏差 是很重要的。为此，我们采取以下措施:我们 首先保证标注者在背景信息方面的多样性， 包括性别、年龄、种族、地区和研究。所有参与者均为语言学专业，并经过系统训练。 标注者的人口统计数据如表所示。然后， 我们对爬取的帖子中包含的有毒内容进行渐 进式分析，初步确定各种粒度的标注规则。 经过几次迭代的小规模标注测试和对边缘情况的讨论，最终确定了标准。</p></div><div class="el-p"><p dir="auto"><span alt="Pasted image 20240616181800.png" src="Pasted image 20240616181800.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240616181800.png" src="lib/media/pasted-image-20240616181800.png"></span></p></div></div></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="1.2 模型建立" dir="auto" class="heading" id="1.2_模型建立"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.2 模型建立</h3><div class="heading-children"><div class="el-p"><p dir="auto">主要使用了Facilitating Fine-grained Detection of Chinese Toxic Language: Hierarchical Taxonomy, Resources, and Benchmarks中的模型与方法。</p></div><div class="el-h4 heading-wrapper"><h4 data-heading="主要方法和思路" dir="auto" class="heading" id="主要方法和思路"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>主要方法和思路</h4><div class="heading-children"><div class="el-ol"><ol>
+<li data-line="0" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>分层分类法（MONITOR TOXIC FRAME）：</strong>
+<ul>
+<li data-line="1" dir="auto"><strong>目的:</strong> 区分仇恨言论和一般冒犯性语言，并分析有害表达方式。</li>
+<li data-line="2" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>层级：</strong>
+<ul>
+<li data-line="3" dir="auto"><strong>有害识别：</strong> 二元分类，用于确定评论是否包含有害语言。</li>
+<li data-line="4" dir="auto"><strong>有害类型区分：</strong> 区分一般冒犯性语言和仇恨言论。</li>
+<li data-line="5" dir="auto"><strong>目标群体和表达类型检测：</strong> 识别目标群体（性别歧视、种族歧视、地域偏见和反LGBTQ）以及表达类型（显性、隐性或报告）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-line="6" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>侮辱词典：</strong>
+<ul>
+<li data-line="7" dir="auto"><strong>目的：</strong> 包含隐性脏话，这对于检测微妙的有害语言至关重要。</li>
+<li data-line="8" dir="auto"><strong>内容：</strong> 包含显性脏话和隐性有害术语，如讽刺性隐喻。</li>
+</ul>
+</li>
+<li data-line="9" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>有害知识增强（TKE）：</strong>
+<ul>
+<li data-line="10" dir="auto"><strong>描述：</strong> 一个基准，结合词汇特征来增强文本表示，改善有害语言的检测。</li>
+<li data-line="11" dir="auto"><strong>评估：</strong> 使用多个基准结合TKE，证明其在检测有害语言方面的有效性。</li>
+</ul>
+</li>
+</ol></div><div class="el-p"><p dir="auto"><span alt="Pasted image 20240616182233.png" src="Pasted image 20240616182233.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240616182233.png" src="lib/media/pasted-image-20240616182233.png"></span></p></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="深度学习基准模型" dir="auto" class="heading" id="深度学习基准模型"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>深度学习基准模型</h4><div class="heading-children"><div class="el-p"><p dir="auto">我们使用多个基准模型作为编码器进行实验，包括BiLSTM和预训练语言模型（PLM），如BERT和RoBERTa。<br>
+这里我们介绍实验的基线。以下几个现有的基准模型被用作编码器。我们使用一个全连接层作为几个子任务的分类器。<br>
+BiLSTM。该方法采用腾讯AI Lab Embedding6的静态词向量，具有200维特征， 并使BiLSTM整合上下文信息。<br>
+BERT。两个最常用的基于中文的transform文本模型, bert- basedchinese7 和 robertabasedchinese8，被用作基准模型。在实验中，编码器的池化输出被用作连接分类器的输入。</p></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="侮辱词典" dir="auto" class="heading" id="侮辱词典"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>侮辱词典</h4><div class="heading-children"><div class="el-p"><p dir="auto">根据攻击对象的不同，将标注过程中构建的 辱骂词典分为五类。该词典包括性别歧视、 种族主义、地域偏见、反lbgtq以及一般脏话， 指的是那些可以用来冒犯任何群体的脏话。 最终的词典收录了1032个词条，不仅包括露骨的粗俗词汇，也包括含蓄的侮辱性词汇。 此外，由于互联网每年都会产生大量新的辱骂词，为了规避过滤机制，网民改变原有的辱骂词，创造出字形和发音相似的新变体(陈2012;Zhang, 2010)，分别被称为 变形和谐音。此外，在一些脏话中，汉字有时会被其他语言取代形成混合词或缩写。探索它们的起源至关重要。因此我们进一步从提出的侮辱词中分析网络脏话的派生规则。具体来说，我们从表面特征和实际含义两个方面对它们进行了简要总结。更多相关的术语说明和亵渎的例子如下。</p></div><div class="el-p"><p dir="auto">实际意义。互联网用户经常引入隐含的术语来攻击或诋毁目标群体，包括隐喻和反讽的使用(陈，2012)。除此之外，一些外来词还含有特定的偏见，被用于隐性的有毒评论中(Shi, 2010)。与基于表面特征的变体相比， 这些具有深层语义的术语必须借助背景知识进行检测。<br>
+以下是一些变形方式的总结：</p></div><div class="el-p"><p dir="auto">变形。由于汉字是象形文字，通过与单个 汉字的分离和结合，赋予汉字包含特定情感的 意义(陈，2012)。一个例子是“默”(意为“沉 默”)，其字形由“黑”(意为“黑”)和“犬” (意为“狗”)组成，含蓄地表达了对黑人群体<br>
+的厌恶。</p></div><div class="el-p"><p dir="auto">旧词新意。褒义词有时是讽刺地使用来达到侮辱的效果，这往往体现在带有新含义的旧词 上(Fortuna and Nunes, 2018)。就像“仙女” (意为“仙女”)，原本温柔善良的形象被暗含<br>
+为粗鲁无礼的“泼妇”。</p></div><div class="el-p"><p dir="auto">缩写。例如“txl”，每个字母分别是 “同”、“性”和“恋”的发音首字母，意思是“gay”。</p></div><div class="el-p"><p dir="auto">语种混合。为了强调语气，在中文网络平 台的文本中广泛混合了非中文语言，比如英文和表情符号(Li etal.， 2020)。比如脏话“ni哥”(意为“ni哥”)， 和“nagger”的读音相同。</p></div><div class="el-p"><p dir="auto">舶来词。一些语音外来词弥漫着某种有 毒的文化内涵(Shi, 2010)。因此，需要背景信<br>
+息来澄清这些术语的实际语义。一个例子是 “凯勒奇”，指的是反犹的卡勒吉计划，被用<br>
+作一个煽动性的术语。</p></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="TKE方法描述" dir="auto" class="heading" id="TKE方法描述"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>TKE方法描述</h4><div class="heading-children"><div class="el-p"><p dir="auto">TKE方法旨在通过结合词汇特征来增强文本表示，改善有害语言的检测能力。具体步骤如下：</p></div><div class="el-ol"><ol>
+<li data-line="0" dir="auto"><strong>词汇嵌入：</strong> 对于给定的句子 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math></mjx-container></span>，每个词元 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 被嵌入为一个d维向量 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c211D TEX-A"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math></mjx-container></span>。</li>
+<li data-line="1" dir="auto"><strong>有害嵌入设计：</strong> 利用n-gram方法确定 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 是否为侮辱词的子词，并根据攻击的群体类别进行标注。随机初始化群体类别表示 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math></mjx-container></span>，其中 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math></mjx-container></span> 表示非有害词，<span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container></span> 表示侮辱词典的类别数。在此工作中，<span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math></mjx-container></span>。</li>
+<li data-line="2" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>有害嵌入定义：</strong> 对于 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span>，其有害嵌入 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 的定义如下：
+<ul>
+<li data-line="3" dir="auto"><span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math></mjx-container></span>，如果 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 是非有害词。</li>
+<li data-line="4" dir="auto"><span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span>，如果 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 属于第 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-math></mjx-container></span> 类。</li>
+</ul>
+</li>
+<li data-line="5" dir="auto"><strong>增强表示：</strong> 将有害嵌入 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 和词汇嵌入 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math></mjx-container></span> 进行逐元素加法得到增强表示 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.254em; margin-left: 0px;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-utext variant="italic" style="font-family: MJXZERO, serif; font-style: italic;">，</mjx-utext></mjx-mi><mjx-mi class="mjx-n"><mjx-utext variant="normal" style="font-family: MJXZERO, serif;">其</mjx-utext></mjx-mi><mjx-mi class="mjx-n"><mjx-utext variant="normal" style="font-family: MJXZERO, serif;">中</mjx-utext></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="2"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math></mjx-container></span> 是一个控制有害知识摄取的权重系数。最终的句子嵌入表示为 <span class="math math-inline is-loaded"><mjx-container class="MathJax" jax="CHTML"><mjx-math class="MJX-TEX"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.258em; margin-left: 0px;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.258em; margin-left: 0px;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.328em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math></mjx-container></span>。</li>
+</ol></div><div class="el-p"><p dir="auto"><span alt="Pasted image 20240616182256.png" src="Pasted image 20240616182256.png" class="internal-embed media-embed image-embed is-loaded"><img alt="Pasted image 20240616182256.png" src="lib/media/pasted-image-20240616182256.png"></span></p></div></div></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="1.3 预测结果" dir="auto" class="heading" id="1.3_预测结果"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.3 预测结果</h3><div class="heading-children"><div class="el-h4 heading-wrapper"><h4 data-heading="实验结果解释" dir="auto" class="heading" id="实验结果解释"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>实验结果解释</h4><div class="heading-children"><div class="el-p"><p dir="auto">我们采用了广泛使用的加权精度(P)、召回率(R) 和F1-score (F1)指标来评估模型的性能。利用 加权交叉熵来解决类别不平衡问题，优化器是 AdamW。在训练阶段应用了早期停止机制。所有样本被分成训练集和测试集，比例 为8:2。我们对超参进行微调，并在测试集上保 留表现最好的模型和超参数，通过改变随机种子来减少误差，重复5次相同的实验。</p></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="训练集及验证集结果" dir="auto" class="heading" id="训练集及验证集结果"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>训练集及验证集结果</h4><div class="heading-children"><div class="el-table" dir="ltr" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="ltr">Epoch</th>
+<th dir="ltr">Train F1</th>
+<th dir="ltr">Train All F1</th>
+<th dir="ltr">Train Precision</th>
+<th dir="ltr">Train Recall</th>
+<th dir="ltr">Train Loss</th>
+<th dir="ltr">Eval F1</th>
+<th dir="ltr">Eval All F1</th>
+<th dir="ltr">Eval Precision</th>
+<th dir="ltr">Eval Recall</th>
+<th dir="ltr">Eval Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="auto">0</td>
+<td dir="auto">0.7488</td>
+<td dir="auto">[0.7024, 0.7788]</td>
+<td dir="auto">0.7579</td>
+<td dir="auto">0.7463</td>
+<td dir="auto">0.5268</td>
+<td dir="auto">0.7985</td>
+<td dir="auto">[0.7787, 0.8142]</td>
+<td dir="auto">0.8005</td>
+<td dir="auto">0.7980</td>
+<td dir="auto">0.4629</td>
+</tr>
+<tr>
+<td dir="auto">1</td>
+<td dir="auto">0.8538</td>
+<td dir="auto">[0.8393, 0.8657]</td>
+<td dir="auto">0.8540</td>
+<td dir="auto">0.8536</td>
+<td dir="auto">0.3627</td>
+<td dir="auto">0.8036</td>
+<td dir="auto">[0.7888, 0.8161]</td>
+<td dir="auto">0.8040</td>
+<td dir="auto">0.8034</td>
+<td dir="auto">0.4498</td>
+</tr>
+<tr>
+<td dir="auto">2</td>
+<td dir="auto">0.9045</td>
+<td dir="auto">[0.8953, 0.9122]</td>
+<td dir="auto">0.9047</td>
+<td dir="auto">0.9045</td>
+<td dir="auto">0.2624</td>
+<td dir="auto">0.8140</td>
+<td dir="auto">[0.7870, 0.8326]</td>
+<td dir="auto">0.8218</td>
+<td dir="auto">0.8125</td>
+<td dir="auto">0.4567</td>
+</tr>
+<tr>
+<td dir="auto">3</td>
+<td dir="auto">0.9414</td>
+<td dir="auto">[0.9358, 0.9460]</td>
+<td dir="auto">0.9415</td>
+<td dir="auto">0.9414</td>
+<td dir="auto">0.1786</td>
+<td dir="auto">0.8052</td>
+<td dir="auto">[0.7904, 0.8178]</td>
+<td dir="auto">0.8057</td>
+<td dir="auto">0.8051</td>
+<td dir="auto">0.5055</td>
+</tr>
+<tr>
+<td dir="auto">4</td>
+<td dir="auto">0.9672</td>
+<td dir="auto">[0.9642, 0.9697]</td>
+<td dir="auto">0.9672</td>
+<td dir="auto">0.9672</td>
+<td dir="auto">0.1122</td>
+<td dir="auto">0.8070</td>
+<td dir="auto">[0.7621, 0.8319]</td>
+<td dir="auto">0.8321</td>
+<td dir="auto">0.8030</td>
+<td dir="auto">0.6130</td>
+</tr>
+</tbody>
+</table></div></div></div><div class="el-h4 heading-wrapper"><h4 data-heading="测试集结果" dir="auto" class="heading" id="测试集结果"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>测试集结果</h4><div class="heading-children"><div class="el-table" dir="auto" style="overflow-x: auto;"><table>
+<thead>
+<tr>
+<th dir="auto"></th>
+<th dir="ltr">Test F1</th>
+<th dir="ltr">Test All F1</th>
+<th dir="ltr">Test Precision</th>
+<th dir="ltr">Test Recall</th>
+<th dir="ltr">Test Loss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td dir="ltr">Test</td>
+<td dir="auto">0.8129</td>
+<td dir="auto">[0.7880, 0.8306]</td>
+<td dir="auto">0.8189</td>
+<td dir="auto">0.8117</td>
+<td dir="auto">0.4619</td>
+</tr>
+</tbody>
+</table></div></div></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="1.4 结果与讨论" dir="auto" class="heading" id="1.4_结果与讨论"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.4 结果与讨论</h3><div class="heading-children"><div class="el-ol"><ol>
+<li data-line="0" dir="auto"><strong>实验结果：</strong> 结果表明，深度学习方法相比于在线API如百度文本审核，具有更好的性能。这可能是因为在线API的过滤机制较为简单。</li>
+<li data-line="1" dir="auto"><strong>不同子任务的性能：</strong> 实验结果显示，TKE在不同粒度的有害语言检测任务中提高了模型的性能，尤其在隐性有害表达的检测中效果显著。</li>
+<li data-line="2" dir="auto"><div class="list-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><strong>错误分析：</strong> 通过对所有模型误分类样本的人工检查，识别出两种主要的错误类型：
+<ul>
+<li data-line="3" dir="auto"><strong>类型I错误（假阴性）：</strong> 模型将有害句子分类为非有害，通常是由于缺乏语义层面的背景信息。</li>
+<li data-line="4" dir="auto"><strong>类型II错误（假阳性）：</strong> 模型将非有害句子分类为有害，通常是由于标记中的脏话或少数群体代词引起的误判。</li>
+</ul>
+</li>
+</ol></div></div></div><div class="el-h3 heading-wrapper"><h3 data-heading="1.5 参考文献" dir="auto" class="heading" id="1.5_参考文献"><div class="heading-collapse-indicator collapse-indicator collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div>1.5 参考文献</h3><div class="heading-children"><div class="el-p"><p dir="auto">Facilitating Fine-grained Detection of Chinese Toxic Language: Hierarchical Taxonomy, Resources, and Benchmarks</p></div><div class="el-p"><p dir="auto">Nlpdove at semeval-2020 task 12: Improving offensive language detection with cross-lingual transfer</p></div><div class="mod-footer mod-ui"></div></div></div></div></div></div></div></div><div class="sidebar-right sidebar"><div class="sidebar-handle"></div><div class="sidebar-topbar"><div class="topbar-content"></div><div class="clickable-icon sidebar-collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M21 3H3C1.89543 3 1 3.89543 1 5V19C1 20.1046 1.89543 21 3 21H21C22.1046 21 23 20.1046 23 19V5C23 3.89543 22.1046 3 21 3Z"></path><path d="M10 4V20"></path><path d="M4 7H7"></path><path d="M4 10H7"></path><path d="M4 13H7"></path></svg></div></div><div class="sidebar-content"><div class="graph-view-wrapper"><div class="sidebar-section-header">Interactive Graph</div><div class="graph-view-placeholder">
+		<div class="graph-view-container">
+			<div class="graph-icon graph-expand" role="button" aria-label="Expand" data-tooltip-position="top"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></div>
+			<canvas id="graph-canvas" class="hide" width="512px" height="512px"></canvas>
+		</div>
+		</div></div><div class="tree-container mod-root nav-folder tree-item outline-tree" data-depth="0"><div class="tree-header"><span class="sidebar-section-header">Table Of Contents</span><button class="clickable-icon collapse-tree-button" aria-label="Collapse All"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button></div><div class="tree-scroll-area tree-item-children nav-folder-children"><div class="tree-item mod-tree-folder nav-folder mod-collapsible is-collapsed" style="display: none;"></div><div class="tree-item" data-depth="1"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#网络暴力语言细粒度分类模型"><div class="tree-item-contents heading-link" heading-name="网络暴力语言细粒度分类模型"><span class="tree-item-title">网络暴力语言细粒度分类模型</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item mod-collapsible" data-depth="2"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#预测模型"><div class="tree-item-contents heading-link" heading-name="预测模型"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">预测模型</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.1_数据集"><div class="tree-item-contents heading-link" heading-name="1.1 数据集"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">1.1 数据集</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.1.1_数据集建立"><div class="tree-item-contents heading-link" heading-name="1.1.1 数据集建立"><span class="tree-item-title">1.1.1 数据集建立</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.1.2_偏执处理"><div class="tree-item-contents heading-link" heading-name="1.1.2 偏执处理"><span class="tree-item-title">1.1.2 偏执处理</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.2_模型建立"><div class="tree-item-contents heading-link" heading-name="1.2 模型建立"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">1.2 模型建立</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#主要方法和思路"><div class="tree-item-contents heading-link" heading-name="主要方法和思路"><span class="tree-item-title">主要方法和思路</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#深度学习基准模型"><div class="tree-item-contents heading-link" heading-name="深度学习基准模型"><span class="tree-item-title">深度学习基准模型</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#侮辱词典"><div class="tree-item-contents heading-link" heading-name="侮辱词典"><span class="tree-item-title">侮辱词典</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#TKE方法描述"><div class="tree-item-contents heading-link" heading-name="TKE方法描述"><span class="tree-item-title">TKE方法描述</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item mod-collapsible" data-depth="3"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.3_预测结果"><div class="tree-item-contents heading-link" heading-name="1.3 预测结果"><div class="collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle"><path d="M3 8L12 17L21 8"></path></svg></div><span class="tree-item-title">1.3 预测结果</span></div></a><div class="tree-item-children nav-folder-children"><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#实验结果解释"><div class="tree-item-contents heading-link" heading-name="实验结果解释"><span class="tree-item-title">实验结果解释</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#训练集及验证集结果"><div class="tree-item-contents heading-link" heading-name="训练集及验证集结果"><span class="tree-item-title">训练集及验证集结果</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="4"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#测试集结果"><div class="tree-item-contents heading-link" heading-name="测试集结果"><span class="tree-item-title">测试集结果</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.4_结果与讨论"><div class="tree-item-contents heading-link" heading-name="1.4 结果与讨论"><span class="tree-item-title">1.4 结果与讨论</span></div></a><div class="tree-item-children nav-folder-children"></div></div><div class="tree-item" data-depth="3"><a class="tree-link" href="project\challenge-cup-网络暴力治理\网络暴力语言细粒度分类模型.html#1.5_参考文献"><div class="tree-item-contents heading-link" heading-name="1.5 参考文献"><span class="tree-item-title">1.5 参考文献</span></div></a><div class="tree-item-children nav-folder-children"></div></div></div></div></div></div></div></div></div><script defer="">let rs = document.querySelector(".sidebar-right"); rs.classList.add("is-collapsed"); if (window.innerWidth > 768) rs.classList.remove("is-collapsed"); rs.style.setProperty("--sidebar-width", localStorage.getItem("sidebar-right-width"));</script></div></div></body></html>
