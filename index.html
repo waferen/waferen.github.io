@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李世博 (Shibo Li) - AI Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-bar a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .contact-bar a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 40px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            color: var(--text-dark);
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .interest-tag {
+            background: var(--bg-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Project Cards */
+        .project {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .badge-conference {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-project {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-thesis {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .project-meta {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin: 8px 0;
+        }
+
+        .project-desc {
+            color: var(--text-dark);
+            margin: 12px 0;
+            line-height: 1.7;
+        }
+
+        .project-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-points li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-points li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .project-links {
+            margin-top: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Education & Awards */
+        .edu-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .edu-time {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        .edu-major {
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .award-item i {
+            color: #f59e0b;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .skill-list {
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header {
+                padding: 25px;
+            }
+            .name {
+                font-size: 2em;
+            }
+            .section {
+                padding: 20px 25px;
+            }
+            .project-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-img-placeholder" style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3em; font-weight: 700;">L</div>
+            <h1 class="name">李世博 (Shibo Li)</h1>
+            <p class="tagline">人工智能 × 教育学 | 高效机器学习研究者</p>
+            <p style="color: var(--text-light); margin-bottom: 15px;">
+                <i class="fas fa-map-marker-alt"></i> 南京师范大学 (Nanjing Normal University)
+            </p>
+            <div class="contact-bar">
+                <a href="mailto:2835817201@qq.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/waferen" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://waferen.github.io/" title="Blog"><i class="fas fa-blog"></i></a>
+            </div>
+        </header>
+
+        <!-- About -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i>
+                关于我 (About Me)
+            </h2>
+            <div class="about-content">
+                <p>
+                    我是南京师范大学人工智能专业本科生，辅修教育学双学位。我的研究兴趣集中在<strong>高效机器学习</strong>，包括持续学习、图神经网络和自动驾驶中的轨迹预测。我相信跨学科的视角能为AI研究带来新的灵感——正如我的毕业设计将教育心理学中的"间隔效应"引入神经网络训练，有效缓解了灾难性遗忘问题。
+                </p>
+                <div class="interests">
+                    <span class="interest-tag">Continual Learning</span>
+                    <span class="interest-tag">Graph Neural Networks</span>
+                    <span class="interest-tag">Trajectory Prediction</span>
+                    <span class="interest-tag">Reinforcement Learning</span>
+                    <span class="interest-tag">Edge AI</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-flask"></i>
+                研究项目 (Research Projects)
+            </h2>
+
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">View-Batch Replay for Continual Learning</div>
+                        <div class="project-meta">毕业设计 | Python + PyTorch | 2026.01 - 至今</div>
+                    </div>
+                    <div class="project-badges">
+                        <span class="badge badge-conference">CVPR 2025</span>
+                        <span class="badge badge-thesis">毕业论文</span>
+                    </div>
+                </div>
+                <div class="project-desc">
+                    复现CVPR 2025论文《Replay Compression for Class-Incremental Learning》(arXiv:2503.18371v1)，受认知心理学间隔效应启发，实现View-Batch Replay机制缓解神经网络灾难性遗忘。
+                </div>
+                <ul class="project-points">
+                    <li><strong>论文复现：</strong>完整实现View-Batch Replay采样机制、渐进式数据增强、KL散度一致性损失</li>
+                    <li><strong>改进探索：</strong>测试不同aug_repeat参数(2/4/8)和多种渐进式增强策略，发现高斯噪声效果最佳</li>
+                    <li><strong>实验结果：</strong>CIFAR-10类增量学习(5任务)，准确率从71.67%提升至72.97%，遗忘率降低50.8%</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/waferen/ViewBatchModel" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://arxiv.org/abs/2503.18371v1" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">AlphaZero Chinese Chess</div>
+                        <div class="project-meta">独立开发 | Python + C++ + PyTorch | 2025.09 - 2026.03</div>
+                    </div>
+                    <div class="project-badges">
+                        <span class="badge badge-project">强化学习</span>
+                    </div>
+                </div>
+                <div class="project-desc">
+                    基于AlphaZero范式构建中国象棋博弈AI，采用多进程生产者-消费者架构实现自我对弈数据收集与神经网络训练的并行pipeline。
+                </div>
+                <ul class="project-points">
+                    <li><strong>网络设计：</strong>ResNet双头网络，7层残差块(256通道)，策略头输出2086维走法概率</li>
+                    <li><strong>MCTS实现：</strong>PUCT算法，2000次playout，Dirichlet Noise增强探索能力</li>
+                    <li><strong>性能优化：</strong>使用C++重写MCTS搜索逻辑，通过Pybind11与Python交互，兼顾开发效率和运行效率</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/waferen/aichess" target="_blank"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <div class="project-header">
+                    <div>
+                        <div class="project-title">GNN-Transformer for Trajectory Prediction</div>
+                        <div class="project-meta">独立复现 | Python + PyTorch Geometric | 2024.09 - 2025.03</div>
+                    </div>
+                    <div class="project-badges">
+                        <span class="badge badge-conference">VectorNet</span>
+                        <span class="badge badge-project">自动驾驶</span>
+                    </div>
+                </div>
+                <div class="project-desc">
+                    复现Waymo VectorNet论文，构建层次化图神经网络与Transformer相结合的深度学习模型，用于自动驾驶场景中的多代理轨迹预测。
+                </div>
+                <ul class="project-points">
+                    <li><strong>GNN编码器：</strong>SubGraph消息传递网络，3层GraphLayerProp聚合折线特征，MaxPooling输出512维表示</li>
+                    <li><strong>Transformer：</strong>Multi-Head Self-Attention建模代理间交互，Masked Softmax处理变长序列</li>
+                    <li><strong>实验结果：</strong>Argoverse数据集，20帧历史→30帧预测，minADE=2.637, minFDE=6.992</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/waferen/GNN-Transformer-Trajectory-Prediction" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://arxiv.org/abs/2005.04259" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                教育经历 (Education)
+            </h2>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <div>
+                        <div class="edu-school">南京师范大学 (Nanjing Normal University)</div>
+                        <div class="edu-major">人工智能 (主修) + 教育学 (辅修) | 本科</div>
+                    </div>
+                    <div class="edu-time">2022.09 - 2026.06</div>
+                </div>
+                <div style="margin-top: 8px; color: var(--text-light); font-size: 0.9em;">
+                    GPA: 3.25 / Top 20% | 科研创新先进个人 | 连续三年校优秀学生奖学金
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <div>
+                        <div class="edu-school">江苏省苏州中学</div>
+                    </div>
+                    <div class="edu-time">2016.09 - 2022.06</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i>
+                荣誉奖项 (Honors)
+            </h2>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <i class="fas fa-medal"></i>
+                    <span>电工杯数模 <strong>国家三等奖</strong></span>
+                </div>
+                <div class="award-item">
+                    <i class="fas fa-medal"></i>
+                    <span>高教社杯数模 <strong>江苏省一等奖</strong></span>
+                </div>
+                <div class="award-item">
+                    <i class="fas fa-medal"></i>
+                    <span>码蹄杯程序设计 <strong>江苏省银奖</strong></span>
+                </div>
+                <div class="award-item">
+                    <i class="fas fa-medal"></i>
+                    <span>全国大学生数学竞赛 <strong>江苏省三等奖</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                技术技能 (Technical Skills)
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <div class="skill-list">Python, C++, LaTeX, Markdown</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Frameworks</h4>
+                    <div class="skill-list">PyTorch, PyTorch Geometric, NumPy, Pandas</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Tools</h4>
+                    <div class="skill-list">Git, Linux, VS Code, Jupyter</div>
+                </div>
+                <div class="skill-category">
+                    <h4>Domains</h4>
+                    <div class="skill-list">Deep Learning, RL, GNN, Computer Vision</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Shibo Li. Powered by GitHub Pages.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <i>"Education is not the filling of a pail, but the lighting of a fire."</i> —— W.B. Yeats
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
